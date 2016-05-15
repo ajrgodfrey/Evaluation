@@ -1,0 +1,33 @@
+
+
+
+We have chosen to truncate the eGFR values at 100 for the purposes of this analysis. All patients whose eGFR is above 90 are said to be above average and showing no signs of renal dysfunction. We have also truncated at the critical end of eGFR by raising all eGFR values less than 10 up to 10; this decision has been taken due to the low number of patients that have such low eGFR values.
+
+The model  used to identify the statistically significant factors affecting the time between successive renal function tests allows for each patient's gender (F or M), their age (Four categories), their level of renal function (as measured by their eGFR), and whether that test was analysed using the RenalQ system. In addition, the combination of many of these effects has also been incorporated in the model. The regression model for this model yields  the following summary of effects and their statistical significance.
+\begin{Schunk}
+\begin{Soutput}
+                            Df     Deviance Resid. Df   -2*LL      Pr(>Chi)
+NULL                        NA           NA    175141 1385851            NA
+AgeGroup                   813 2.004357e+04    174328 1365808  0.000000e+00
+SEX                          1 1.003970e+01    174327 1365798  1.532021e-03
+System                       1 1.483301e+01    174326 1365783  1.174615e-04
+EGFR_C                       9 9.598082e+03    174317 1356185  0.000000e+00
+AgeGroup:SEX                 3 9.776814e+01    174314 1356087  4.691734e-21
+AgeGroup:System              3 7.175265e+01    174311 1356015  1.798459e-15
+SEX:System                   1 1.463972e-01    174310 1356015  7.020024e-01
+AgeGroup:EGFR_C             27 8.486214e+02    174283 1355167 2.239113e-161
+SEX:EGFR_C                   9 6.613466e+01    174274 1355100  8.674873e-11
+System:EGFR_C                9 3.612780e+02    174265 1354739  2.461055e-72
+AgeGroup:SEX:System          3 2.419292e+00    174262 1354737  4.900535e-01
+AgeGroup:SEX:EGFR_C         27 6.430043e+01    174235 1354672  7.010564e-05
+AgeGroup:System:EGFR_C      27 7.671858e+01    174208 1354596  1.174889e-06
+SEX:System:EGFR_C            9 3.716795e+01    174199 1354559  2.456257e-05
+AgeGroup:SEX:System:EGFR_C  27 4.459772e+01    174172 1354514  1.792207e-02
+\end{Soutput}
+\end{Schunk}
+Most of the factors and their combined effects are statistically significant. Many of these differences are  quite small however. We have chosen to present the findings using a series of graphs. Each panel in the following figure uses the log (base 10) transformation on the number of days between tests. The vertical axis of each panel is therefore presented on the log scale and is marked with powers of 10 and while the numbers $10^2=100$ days and $10^3=1000$ days might be familiar, the reader should note that $10^{1.5}$ is approximately 31.62 days, while $10^{2.5}$ is approximately 316.23 days. The horizontal axis for each panel is the eGFR score for a test and there are two sets of points marked inside each panel. The pink coloured points show the number of days until the next test for given levels of eGFR following the introduction of RenalQ; the blue dots are the expected times to retest that were occurring before RenalQ was in operation. The eight panels are for the female (left) and male (right) patients while the four different age groups are presented vertically with the older patients at the top and the youngest at the bottom.
+
+\includegraphics{Figures/Retest-ThePlots}
+
+We would hope that the pink points lie below the blue ones for the range of eGFR values where we want patients to have increased monitoring, and above the blue ones for those patients who need less monitoring. The above plots indicate that when a  difference is noticeable, the difference suggest RenalQ is increasing the monitoring of patients showing poor renal function but no increase in monitoring of those patients whose renal function is above 60.
+

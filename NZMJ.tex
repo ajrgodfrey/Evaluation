@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[authoryear]{natbib}
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{Sweave}
+\pagestyle{empty}
+\bibliographystyle{chicago}
+
+% for content not to be included in both papers use 
+\newcommand{\Greig}[1]{#1}
+\newcommand{\Jonathan}[1]{}
+
+
+\begin{document}
+
+
+
+\title{Evaluation of an automated system for monitoring patients with acute and chronic kidney failure}
+
+\author{Greig~K.~G.~Russell$^{a*}$, Iris Nanguzgambo$^{b}$, and A.~Jonathan~R.~Godfrey$^{b}$}
+\maketitle
+\smallskip
+\thispagestyle{empty}
+
+$^a$ MidCentral District Health Board, Palmerston North, New Zealand\\
+
+$^b$ Institute of Fundamental Sciences, Massey University, Palmerston North, New Zealand\\
+
+%G to fix
+$^*$ Institute of Fundamental Sciences, Massey University, Private Bag 11-222, Palmerston North, New Zealand. %E-mail: \url{a.j.godfrey@massey.ac.nz}\\
+
+%\linenumbers
+%\doublespacing
+
+
+
+
+
+
+\input{evaluation}
+
+\bibliography{Jonathan,Greig}
+\label{LastPage}
+\end{document}

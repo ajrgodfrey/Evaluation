@@ -1,0 +1,76 @@
+
+\begin{abstract}
+Introduction of an automated  monitoring  system for test results on kidney function by way of statistical process control techniques needed evaluation for its effectiveness and impact. In order to gain confidence with the new system, doctors need to know that patients are getting the same or improved care, while funders would like to know that  additional costs are negligible, or are the result of extra services being applied to those patients with the greatest need and are therefore leading to improved health outcomes.
+
+Treatment of patients whose renal function is low have high ongoing medical costs, especially once dialysis becomes the only remaining option for treatment. Introduction of a monitoring system would hopefully add value for the medical professionals taking care of patients whose condition is treatable in order to stave off the need for dialysis.
+\end{abstract}
+
+\pagebreak
+
+\section{Introduction}
+
+Kidney disease is an increasing problem worldwide. \citet{jha2013chronic}, described how practitioner awareness remains low despite the rising significance of renal disease. These authors argued that care would need to be led by primary care and integrated into general chronic condition management to avoid the ``catastrophic" costs associated with the management of advanced chronic renal disease management \citep{jha2013chronic}. 
+The cost of renal disease was estimated  at 1.44-1-45 billion in 2009-2010 for the UK alone \citep{kerr2012estimating}. 
+
+
+The system developed by \citet{GodfreyEtAl2014KidneyPaper} responded to the need to assist doctors and renal care specialists handle the deluge of data they had or were about to have if the concerns over a diabetes epidemic would come to pass. It was important to filter the results for patients in need of further monitoring from those patients with standard renal function, and then to determine if the monitoring regime was suitable for the patient's current situation. Concerns over the need to process a large quantity of test results is not novel; \citet{poon2004wish} reported that American primary care physicians spent 74 minutes per day reviewing results. Despite which 81\% reported delays in managing results and only 41\% were satisfied with their current process.
+
+After a successful pilot testing phase using patients for four physicians, the system described by \citet{GodfreyEtAl2014KidneyPaper}  was deemed suitable for wider release; it was given a working name of `RenalQ' and was rolled out for all patients in the local District Health Board's catchment area. On 1 April 2015, all other systems related to the processing of kidney function test results were suspended, and to date have not been re-engaged. % is that date right? it feels wrong
+During the first few months of operation the implementation team turned their attention to finding a means of evaluating the system to show other District Health Boards that they should implement the system in their areas. This paper outlines the methods used to illustrate the effectiveness of the RenalQ system and which patients are benefitting from RenalQ's implementation.
+There are two main concerns to consider about the impact the introduction has had on the service provider. We ask the two questions: \begin{enumerate}
+\item Has RenalQ led to an increase in total testing numbers?
+\item Have the patients whose condition with respect to renal function had a change in the frequency over which they are being tested? 
+\end{enumerate}
+Ultimately we would hope that the answer to the first question is either ``no", or that if it is ``yes", that the increased amount of testing is being directed to those patients who would be considered in need of greater monitoring in order to achieve improved health outcomes.
+
+In Section~\ref{TheSystem} we briefly outline the RenalQ	 system, while Section~\ref{Methodology} gives details of the data and methodology used to evaluate the implementation of RenalQ. We present and discuss our findings in Section~\ref{Findings} and offer some conclusions in Section~\ref{Conclusions}.
+
+\section{The System}  \label{TheSystem} 
+
+A patient's Glomerular Filtration Rate (GFR) can be estimated  following  a serum creatinine test taken in a clinical laboratory as part of a standard blood test. RenalQ pulls the historical data for a patient using their unique identifier attached to the digital request identifier for the blood test and then compares the current test result with the historical data. The analysis depends on the length of a patient's history of testing; if the history is short, then RenalQ will recommend a timeframe for the next test depending on the level of the patient's eGFR and recent data history. The rules used by RenalQ in these circumstances are aimed at increasing the amount of testing for patients whose eGFR is well below average for a patient in good health, while a patient who is above average is in no need of further testing at this time.
+ 
+Patients will therefore build a history of eGFR results over time, with those most in need of ongoing monitoring building a history faster than patients in good health. If a patient moves from good health as indicated by a lower eGFR, they will have a new recommendation based on their current condition. It is likely therefore that patients with a longer history of eGFR test results will be those patients who are in the greatest need of monitoring.
+
+For those patients who have a long history of eGFR results, RenalQ uses statistical process control techniques to evaluate the latest test result in the context of each patient's history. Each patient's data is then evaluated using three control charts: a standard control chart for individual observations, an exponential weighted moving average chart, and a CUSUM chart. This set of graphical displays is created for clinicians to consider, but RenalQ offers a recommendation based on a number of decision criteria in common use with these control charts; a more complete discussion of the control charts and associated decision criteria can be found in \citet{GodfreyEtAl2014KidneyPaper}. Each decision criterion is a warning that something unusual is happening for the patient; these warnings are set at fairly conservative levels which trigger a change in the recommended time to the next test being sought. In other words, the patient's recommended time to their next test remains as it was before the last test unless something has changed for that patient. This trigger is then a signal to the patient's physician that they ought to take a special interest in their patient following the latest test. Physicians can also see that the recommended course of action has not changed for their patient; they can of course use their professional judgement to override any recommendation that RenalQ has provided.
+
+\citet{GodfreyEtAl2014KidneyPaper}  proposed that RenalQ has the potential to direct the attention of clinicians and physicians to the patients that have the greatest need. RenalQ may increase the total amount of testing that is sought because it is conservative, especially for those patients with below average renal function. The challenge is to determine if in fact this cost is offset by sufficient improved health outcomes for the individual patients and wider population as well as benefits in resource allocation of increasingly limited human resources and capital equipment. .
+
+\section{Methodology} \label{Methodology} 
+
+We have extracted the entire dataset of eGFR test results for our District Health Board from 1 January 2012 to 31 March 2016 for evaluation. RenalQ went totally live on 1 April 2015 so we have 3.25 years of data to use as a baseline against which RenalQ's impact will be gauged. We are able to compare the total number of tests being conducted over time, and ascertain if any change in the total number of tests is being affected following the introduction of RenalQ.  \input{ProcessData}
+
+In addition to the impact on the total workload for testing, we are interested in what is happening for individual patients following the introduction of RenalQ. 
+We have searched through our data to see when the next test following each test for individual patients was conducted.  We can therefore evaluate the number of days between tests against a number of factors including the patient's age, gender, and the current test result.
+Many patients will appear only once in our data as they either have only one test ever, or any other tests they may have had occurred before 1/1/12 or after 31/3/16. We are not particularly concerned with any test result prior to 1/1/12, but there is an impact on how we ought to evaluate the recommendation process offered by RenalQ if a patient has not yet returned for another test. The time to the next test for these patients is therefore recorded as the number of days until 1/4/16, but we note that it is `censored' data as the next test date remains unknown. Every patient therefore has one censored observation within the data set. We ignored the approximately 3500 records that did not have an NHI number attached as these were for work done under exceptional circumstances and not for management of patients within the intended catchment population.
+
+
+Censored data is commonly found in the evaluation of medical treatments or product testing scenarios where the study period comes to an end without the phenomenon of interest occurring for some experimental units. The appropriate statistical tools for this data scenario are commonly referred to as survival analysis; the survival analysis technique of most interest in our evaluation of RenalQ is  regression for censored data.
+
+All analyses have been conducted using the R statistical application \citep{RItself} and the following additional packages: data.table \citep{data.tablePkg} for data importing and handling of large files; dplyr \citep{dplyrPkg} for data manipulation and some calculations; lattice \citep{latticePkg} for plotting figures; lubridate \citep{lubridatePkg} for processing of date/time data; qcc \citep{qccPkg} for creation of control charts; and survival \citep{survivalPkg} for the statistical analysis of time to event data.
+
+\section{Findings} \label{Findings} 
+
+
+\subsection{Analysis of total testing workload}
+\input{Totals}
+\input{Groups}
+
+
+\subsection{Evaluation of the times between tests}
+
+
+There is a substantial amount of data available for evaluation. Fitting a model to the entire set of data has proven difficult due to computer infrastructure limitations. The first analysis below allows for the differences among age groups and compares males with females, while the subsequent analysis  ignores these differences among the patients.
+
+We have needed to group eGFR values and remove the 2013 data to accommodate the inclusion of sex and age group factors in the following analysis.
+\input{SurvivalWork}
+
+In the following analysis, the data for 2013 has been added back in and we have evaluated every value of eGFR instead of grouped eGFR values.
+\input{SurvivalWork2}
+
+\section{Conclusions} \label{Conclusions}
+
+We have investigated the two aspects that best show the impact of introducing the RenalQ system. First, we found that the total counts of tests being conducted  per month since the introduction of RenalQ are in line with the workloads that would have been expected  even if RenalQ had not been introduced. We have chosen not to show the breakdown of age groups and males versus females in this part of the analysis because we do not observe any unexpected increase. The fact that some increase does exist may need further investigation, but it is unreasonable to conclude at this time that this increase is due to the introduction of RenalQ.
+
+One key aspect of RenalQ is the recommendation for the timing until a patient should get their next renal function test. If RenalQ is helping doctors increase the monitoring of patients with some degree of renal failure, the time to the next test should be decreasing. We see that in fact this is what is happening for those patients whose medical situation is in the critical phase where cheaper and less intrusive medical interventions can be offered.  Patients whose renal function has decreased to extremely low levels were being monitored successfully before the introduction of RenalQ; no material impact has resulted for these patients.
+
+ 
